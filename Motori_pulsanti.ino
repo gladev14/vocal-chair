@@ -48,11 +48,11 @@ void setup() {
 void moveMotors(int speed, bool isForw){
   analogWrite(motor1,speed);
   analogWrite(motor2,speed);
-  /*whiteLedStatus = */digitalWrite(led_retro, LOW);
+  digitalWrite(led_retro, LOW);
   if(speed > 0){
     digitalWrite(led_stop, LOW);
     if(isForw){
-      /*whiteLedStatus = */digitalWrite(led_retro, HIGH);
+      digitalWrite(led_retro, HIGH);
     }
     digitalWrite(dir1, isForw ? HIGH : LOW);
     digitalWrite(dir2, isForw ? HIGH : LOW); 
@@ -84,16 +84,6 @@ void interLed(){
     delay(500);
   }
 }
-
-/*void activeBuzzer(){
-  //while(digitalRead(btn_forw) == LOW || whiteLedStatus == 1){
-  for(int i = 0; i < 5; i++){
-    digitalWrite(buzzer,HIGH);
-    delay(500);
-    digitalWrite(buzzer,LOW);
-    delay(500);
-  }
-}*/
 
 void readFromBT(){
   c = bluetooth.read();
